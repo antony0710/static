@@ -1,5 +1,13 @@
 window.onload = function() {
     // Fetch the saved notes from the API
+    const username = localStorage.getItem('username');
+    console.log(username);
+    const token = localStorage.getItem('token');
+    if(username){
+        var user = document.getElementById('username');
+        user.innerHTML = username;
+    }
+
     const server = 'https://20.40.102.186:443';
     const update_notes = () => {
         var savedNotesContainer = document.getElementById('savedNotes');
@@ -69,6 +77,25 @@ window.onload = function() {
     };
     setInterval(update_date_time, 1000);
 
+
+    const testProtected = () => {
+        const token = localStorage.getItem('token');
+        const server = 'https://20.40.102.186:443';
+        fetch(server+'/testProtected', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.message);
+        })
+    }
+    
+    const B = document.getElementById("testProtected");
+    B.addEventListener("click", testProtected);
 
 
 };
