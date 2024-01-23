@@ -97,43 +97,32 @@ window.onload = function() {
     const B = document.getElementById("testProtected");
     B.addEventListener("click", testProtected);
 
+    fetch('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en')
+    .then(response => response.json())
+    .then(data => {
+        const temperatureContainer = document.getElementById('temperature');
+        temperatureContainer.innerHTML = `
+            <h2>Hong Kong</h2>
+            <p>Temperature: ${data.temperature.data[0].value}°C</p>
+        `;
+    })
+    .catch(error => console.error('Error:', error));
+
+    function updateDivContinuously(delay) {
+        const divElement = document.getElementById('iot'); // Replace 'iot' with your div's id
+        let counter = 0;
+        const server = 'https://20.40.102.186:443';
+        setInterval(() => {
+            fetch(server+'/lastData/10/From_MCU_ESP32') // Replace with your database endpoint
+            .then(response => response.json())
+            .then(data => {
+                counter++;
+                divElement.innerHTML = `This div has been updated ${counter} times. Latest data: ${JSON.stringify(data)}`;
+            })
+            .catch(error => console.error('Error:', error));
+        }, delay);
+    }
+
+    updateDivContinuously(10000);
 
 };
-
-// window.onload = function(){
-//     // Fetch the fetch to days weather
-//     const server = 'https://weatherapi2021.azurewebsites.net';
-//     const update_weather = () => {
-//         var weatherContainer = document.getElementById('weather');
-//         weatherContainer.innerHTML = ''; // Clear the saved notes 
-//         fetch(server+'/getWeather')
-//         .then(response => response.json())
-//         .then(weather => {
-//             // Display the saved notes
-//             weather.forEach(weather => {
-//                 var weatherElement = document.createElement('div');
-//                 weatherElement.className = 'weather';
-    
-//                 var titleElement = document.createElement('h3');
-//                 titleElement.textContent = weather.title;
-//                 weatherElement.appendChild(titleElement);
-    
-//                 var contentElement = document.createElement('pre');
-//                 contentElement.textContent = weather.content;
-//                 contentElement.style.display = 'none'; // Hide the content initially
-//                 weatherElement.appendChild(contentElement);
-    
-//                 weatherElement.addEventListener('click', () => {
-//                     // Toggle the display of the content when the note is clicked
-//                     contentElement.style.display = contentElement.style.display === 'none' ? 'block' : 'none';
-//                 });
-    
-//                 weatherContainer.appendChild(weatherElement);
-//             });
-//         })
-//         .catch((error) => {
-//             console.error('Error:', error);
-//         });
-//     };
-
-// }
