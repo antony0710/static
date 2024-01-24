@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+<body>
+    <header>
+        <h1>My Personal Dashboard</h1>
+        <h2> user name, and icon  </h2>
+        <h2> Today date and weather </h2>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#section1">Section 1</a></li>
+            <li><a href="#section2">Section 2</a></li>
+            <li><a href="#section3">Section 3</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="section1" class="container">
+            <h2>Calendar</h2>
+            <p>Content for section 1...</p>
+        </section>
+        <section id="section2" class="container">
+            <h2>Notifications</h2>
+            <p>Content for section 2...</p>
+        </section>
+        <section id="section3" class="container">
+            <h2>LINKS and Bookmarks</h2>
+            <p>Content for section 3...</p>
+        </section>
+        <section id="section3" class="container">
+            <h2>TO-DO Lists</h2>
+            <p>Content for section 3...</p>
+        </section>
+
+        <section id="section3" class="container">
+            <h2>News</h2>
+            <p>Content for section 3...</p>
+        </section>
+        
+            <!-- Your main content here -->
+            <section id="notes" class="container">
+                <h2>Note Book</h2>
+                <div id="savedNotes"></div>
+                <textarea id="title" rows="1" cols="50" placeholder="Enter title here..."></textarea>
+                <section>
+                <textarea id="content" rows="10" cols="50" placeholder="Enter note here..."></textarea>
+                </section>
+                
+                <button id="save">Save</button>
+    </main>
+</body>
+</html>

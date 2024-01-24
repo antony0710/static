@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+main {
+    background-color: #e9ecef;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+#savedNotes {
+    background-color: #f9f9f9; /* Light grey background */
+    border: 1px solid #ccc; /* Grey border */
+    padding: 15px; /* 15px padding */
+    margin-bottom: 20px; /* 20px margin at the bottom */
+    overflow: auto; /* Add a scrollbar if the content is too large */
+    height: 200px; /* Set a fixed height */
+    width: 100%; /* Full width */
+}
+
+.note {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.note h3 {
+    margin: 0;
+}
+
+.note pre {
+    white-space: pre-wrap; /* Preserve spaces and line breaks */
+    word-wrap: break-word; /* Allow long words to be able to break and wrap onto the next line */
+}
